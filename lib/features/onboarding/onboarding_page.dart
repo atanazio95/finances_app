@@ -30,7 +30,13 @@ class OnboardingPage extends StatelessWidget {
                 style: AppTextStyle.mediumText
                     .copyWith(color: AppColors.greenlightTwo),
               ),
-              ElevatedButton(onPressed: () {}, child: Text('Get start')),
+              const SizedBox(
+                height: 16,
+              ),
+               PrimaryButton(text: 'Get Started', onPressed: (){},),
+              const SizedBox(
+                height: 16,
+              ),
               Text(
                 'Already have account? Log In',
                 style: AppTextStyle.smallText.copyWith(color: AppColors.grey),
@@ -39,6 +45,42 @@ class OnboardingPage extends StatelessWidget {
                 height: 60.0,
               )
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class PrimaryButton extends StatelessWidget {
+  final VoidCallback? onPressed;
+  final String text;
+  const PrimaryButton({
+    Key? key,
+    this.onPressed,
+    required this.text,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      child: Ink(
+        decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(38.0)),
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: AppColors.greenGradient,
+            )),
+        child: InkWell(
+          onTap: onPressed,
+          child: Container(
+            height: 64.0,
+            alignment: Alignment.center,
+            child: Text(
+              text,
+              style: AppTextStyle.mediumText18.copyWith(color: AppColors.white),
+            ),
           ),
         ),
       ),
