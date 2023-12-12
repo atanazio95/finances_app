@@ -15,58 +15,56 @@ class OnboardingPage extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: AppColors.iceWhite,
-        body: Align(
-          child: Column(
-            children: [
-              const SizedBox(height: 60.0),
-              Expanded(
-                flex: 2,
-                child: Image.asset('assets/images/man.png'),
+        body: ListView(
+          physics: const BouncingScrollPhysics(),
+          children: [
+            const SizedBox(height: 48.0),
+            Image.asset('assets/images/man.png'),
+            Text(
+              'Spend smarter',
+              textAlign: TextAlign.center,
+              style: AppTextStyle.mediumText
+                  .copyWith(color: AppColors.greenlightTwo),
+            ),
+            Text(
+              'Save more',
+              textAlign: TextAlign.center,
+              style: AppTextStyle.mediumText
+                  .copyWith(color: AppColors.greenlightTwo),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 32,
+                right: 32,
+                top: 32,
+                bottom: 4,
               ),
-              Text(
-                'Spend smarter',
-                style: AppTextStyle.mediumText
-                    .copyWith(color: AppColors.greenlightTwo),
+              child: PrimaryButton(
+                text: 'Get Started',
+                onPressed: () {},
               ),
-              Text(
-                'Save more',
-                style: AppTextStyle.mediumText
-                    .copyWith(color: AppColors.greenlightTwo),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 32,
-                  right: 32,
-                  top: 32,
-                  bottom: 4,
-                ),
-                child: PrimaryButton(
-                  text: 'Get Started',
-                  onPressed: () {},
-                ),
-              ),
-              MultiTextButton(
-                onPressed: () => debugPrint('wow'),
-                children: [
-                  Text(
-                    'Already have account? ',
-                    style: AppTextStyle.smallText.copyWith(
-                      color: AppColors.grey,
-                    ),
+            ),
+            MultiTextButton(
+              onPressed: () => debugPrint('wow'),
+              children: [
+                Text(
+                  'Already have account? ',
+                  style: AppTextStyle.smallText.copyWith(
+                    color: AppColors.grey,
                   ),
-                  Text(
-                    'Log in',
-                    style: AppTextStyle.smallText.copyWith(
-                      color: AppColors.greenlightTwo,
-                    ),
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 60.0,
-              )
-            ],
-          ),
+                ),
+                Text(
+                  'Log in',
+                  style: AppTextStyle.smallText.copyWith(
+                    color: AppColors.greenlightTwo,
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 60.0,
+            )
+          ],
         ),
       ),
     );

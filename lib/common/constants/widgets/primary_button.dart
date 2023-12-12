@@ -16,24 +16,26 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Ink(
-      height: 48,
-      decoration: BoxDecoration(
+    return Material(
+      child: Ink(
+        height: 48,
+        decoration: BoxDecoration(
+            borderRadius: _borderRadius,
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: onPressed != null
+                  ? AppColors.greenGradient
+                  : AppColors.greyGradient,
+            )),
+        child: InkWell(
           borderRadius: _borderRadius,
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: onPressed != null
-                ? AppColors.greenGradient
-                : AppColors.greyGradient,
-          )),
-      child: InkWell(
-        borderRadius: _borderRadius,
-        onTap: onPressed,
-        child: Align(
-          child: Text(
-            text,
-            style: AppTextStyle.mediumText18.copyWith(color: AppColors.white),
+          onTap: onPressed,
+          child: Align(
+            child: Text(
+              text,
+              style: AppTextStyle.mediumText18.copyWith(color: AppColors.white),
+            ),
           ),
         ),
       ),
