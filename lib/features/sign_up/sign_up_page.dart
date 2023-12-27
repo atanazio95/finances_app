@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../common/constants/app_colors.dart';
 import '../../common/constants/app_text_styles.dart';
+import '../../common/constants/widgets/custon_buttom_form_field.dart';
 import '../../common/constants/widgets/multi_text_button.dart';
 import '../../common/constants/widgets/primary_button.dart';
 
@@ -28,13 +29,10 @@ class SignUpPage extends StatelessWidget {
           Form(
             child: Column(
               children: [
-                TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: "Your Name",
-
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.red)
-                    )),
+                CustomTextformField(
+                  padding: const EdgeInsets.all(32),
+                  labelText: "your name",
+                  hintText: "your@email.com",
                 )
               ],
             ),
